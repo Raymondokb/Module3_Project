@@ -1,14 +1,15 @@
-activity_label <- read.table("D:\\Users\\user\\Downloads\\getdata_2Fprojectfiles%2FUCI HAR Dataset\\UCI HAR Dataset\\activity_labels.txt",stringsAsFactors = FALSE)
-features <- read.table("D:\\Users\\user\\Downloads\\getdata_2Fprojectfiles%2FUCI HAR Dataset\\UCI HAR Dataset\\features.txt", stringsAsFactors = FALSE)
+#setwd("D:\\Users\\user\\Downloads\\getdata_2Fprojectfiles%2FUCI HAR Dataset\\UCI HAR Dataset\\")
+activity_label <- read.table("activity_labels.txt",stringsAsFactors = FALSE)
+features <- read.table("features.txt", stringsAsFactors = FALSE)
+#D:\\Users\\user\\Downloads\\getdata_2Fprojectfiles%2FUCI HAR Dataset\\UCI HAR Dataset\\
+test_subject_test <- read.table("test\\subject_test.txt", stringsAsFactors = FALSE)
+test_x_test <- read.table( "test\\X_test.txt", stringsAsFactors = FALSE)
+test_y_test <- read.table("test\\y_test.txt", stringsAsFactors = FALSE)
 
-test_subject_test <- read.table("D:\\Users\\user\\Downloads\\getdata_2Fprojectfiles%2FUCI HAR Dataset\\UCI HAR Dataset\\test\\subject_test.txt", stringsAsFactors = FALSE)
-test_x_test <- read.table( "D:\\Users\\user\\Downloads\\getdata_2Fprojectfiles%2FUCI HAR Dataset\\UCI HAR Dataset\\test\\X_test.txt", stringsAsFactors = FALSE)
-test_y_test <- read.table("D:\\Users\\user\\Downloads\\getdata_2Fprojectfiles%2FUCI HAR Dataset\\UCI HAR Dataset\\test\\y_test.txt", stringsAsFactors = FALSE)
 
-
-train_subject_train <- read.table("D:\\Users\\user\\Downloads\\getdata_2Fprojectfiles%2FUCI HAR Dataset\\UCI HAR Dataset\\train\\subject_train.txt", stringsAsFactors = FALSE)
-train_x_train <- read.table("D:\\Users\\user\\Downloads\\getdata_2Fprojectfiles%2FUCI HAR Dataset\\UCI HAR Dataset\\train\\X_train.txt", stringsAsFactors = FALSE)
-train_y_train <- read.table("D:\\Users\\user\\Downloads\\getdata_2Fprojectfiles%2FUCI HAR Dataset\\UCI HAR Dataset\\train\\y_train.txt", stringsAsFactors =FALSE)
+train_subject_train <- read.table("train\\subject_train.txt", stringsAsFactors = FALSE)
+train_x_train <- read.table("train\\X_train.txt", stringsAsFactors = FALSE)
+train_y_train <- read.table("train\\y_train.txt", stringsAsFactors =FALSE)
 
 grep("mean",features$V2)
 grep("std", features$V2)
@@ -17,17 +18,6 @@ grep("std", features$V2)
 # To get each participant's each activity's mean of the ~79 measurements with gyro having 'mean' or 'sd'
 
 
-#union(grep("mean",features$V2),grep("std", features$V2) )
-#library(dplyr)
-#test_x_test <- tbl_df(test_x_test)
-#test_y_test <- tbl_df(test_y_test)
-#train_x_train <- tbl_df(train_x_train)
-#train_y_train <- tbl_df(train_y_train)
-
-#activity_label <- tbl_df(activity_label)
-#features <- tbl_df(features)
-#test_subject_test <- tbl_df(test_subject_test)
-#train_subject_train <- tbl_df(train_subject_train)
 
 test_x_test <- cbind(test_x_test,test_subject_test)
 train_x_train <- cbind(train_x_train, train_subject_train)
